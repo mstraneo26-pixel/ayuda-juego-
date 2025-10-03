@@ -1,0 +1,18 @@
+# Dockerfile.node
+# Contenedor Node.js para el servidor WebSocket
+
+FROM node:18
+
+WORKDIR /usr/src/app
+
+# Copiar package.json y lock (si existe) para instalar deps
+COPY package*.json ./
+RUN npm install
+
+# Copiar el resto del proyecto
+COPY . .
+
+# Puerto del WS (coincide con ws-server.js)
+EXPOSE 8080
+
+CMD ["node", "ws-server.js"]

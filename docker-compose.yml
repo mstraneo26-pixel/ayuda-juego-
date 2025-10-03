@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.php
+    container_name: carcassonne_web
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - node
+
+  node:
+    build:
+      context: .
+      dockerfile: Dockerfile.node
+    container_name: carcassonne_node
+    ports:
+      - "8081:8080"
+    volumes:
+      - .:/usr/src/app
+
+  tests:
+    image: node:18
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app
+    command: ["npm", "test"]

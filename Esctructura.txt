@@ -1,0 +1,20 @@
+carcassonne-web/
+│
+├── index.html
+├── assets/
+│   ├── styles.css
+│   ├── tiles.js
+│   ├── game.js
+│   ├── ui.js
+│   ├── net.js          # cliente WS
+│   └── net-php.js      # cliente PHP polling
+├── api/
+│   ├── state.php
+│   ├── reset.php
+│   └── events.php
+├── ws-server.js        # servidor Node WebSocket
+├── Dockerfile.php
+├── Dockerfile.node
+├── docker-compose.yml
+├── package.json
+└── README.md
